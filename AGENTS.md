@@ -12,8 +12,6 @@
 - `Forge.Tests.Services`: tests for `Forge.Services`.
 - `Forge.Tests.Persistence`: tests for `Forge.Persistence`.
 - `Forge.Tests.Database`: tests for `Forge.Database`.
-- `LeadForge.Api`: minimal ASP.NET Core web app.
-- `LeadForge.Domain`: minimal class library for the `LeadForge` area.
 
 ## Target Framework And Tooling
 - All projects currently target `net10.0`.
@@ -97,11 +95,6 @@
 - Keep seeders in `Forge.Database/Seeders/<Area>`.
 - The database project currently seeds permissions, roles, and statuses from the corresponding contract enums.
 - `DatabaseContextFactory` is the design-time entry point for EF Core tooling and builds a `RepositoryDbContext` configured for PostgreSQL with migrations in `Forge.Database`.
-
-## API Notes
-- `LeadForge.Api` is currently a minimal app with a single `GET /` endpoint returning `"Hello World!"`.
-- `LeadForge.Api` currently references `LeadForge.Domain` via a file reference in the project file rather than a project reference.
-- Treat the `LeadForge.*` projects as early-stage placeholders unless the user asks to expand them.
 
 ## Testing
 - Use one dedicated test class per production class, enum, or exception where feasible.

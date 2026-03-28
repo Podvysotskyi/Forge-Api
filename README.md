@@ -1,6 +1,6 @@
 # Forge-Api
 
-`Forge-Api` is a .NET 10 solution centered on the `Forge` SDK libraries, a database/migrations project, and an early `LeadForge.Api` web application. The repository currently combines domain models, contracts, services, EF Core persistence, PostgreSQL migrations/seeders, and dedicated NUnit test projects.
+`Forge-Api` is a .NET 10 solution centered on the `Forge` libraries, database/migrations support, and dedicated NUnit test projects. The repository currently combines domain models, contracts, services, EF Core persistence, PostgreSQL migrations/seeders, local Docker infrastructure, and test coverage for each major layer.
 
 ## Solution Layout
 
@@ -15,8 +15,6 @@
 - `Forge.Tests.Services`: service tests.
 - `Forge.Tests.Persistence`: persistence and repository tests.
 - `Forge.Tests.Database`: database factory tests.
-- `LeadForge.Api`: minimal ASP.NET Core app.
-- `LeadForge.Domain`: placeholder .NET class library for the `LeadForge` area.
 
 ## Current Behavior
 
@@ -25,7 +23,6 @@
 - `OrganizationService.Create(CreateOrganizationDto, User, ...)` rejects duplicate organization names, creates the organization, and still has a TODO for adding the owner membership.
 - `RoleService.GetAll` currently returns user roles only.
 - `Forge.Database` seeders repopulate `Permission`, `Role`, and `Status` rows from the contract enums and clear `DeletedAt` when records already exist.
-- `LeadForge.Api` currently maps only `GET /` to `"Hello World!"`.
 
 ## Requirements
 
@@ -62,17 +59,6 @@ dotnet test Forge.Tests.Services/Forge.Tests.Services.csproj --no-restore -v min
 dotnet test Forge.Tests.Persistence/Forge.Tests.Persistence.csproj --no-restore -v minimal
 dotnet test Forge.Tests.Database/Forge.Tests.Database.csproj --no-restore -v minimal
 ```
-
-## Run The API
-
-```bash
-dotnet run --project LeadForge.Api/LeadForge.Api.csproj
-```
-
-Default launch settings expose:
-
-- `http://localhost:5117`
-- `https://localhost:7279`
 
 ## Local Infrastructure
 
